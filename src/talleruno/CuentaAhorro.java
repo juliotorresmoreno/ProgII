@@ -1,33 +1,35 @@
-
 package talleruno;
 
 public class CuentaAhorro extends Cuenta {
-    private double tasaInteres;
-    private boolean aplicaIntereses;
-    
-     public CuentaAhorro(String cedula, String titular, double deposito, String estado,double tasa){
-          super(cedula,titular,deposito,estado);
-          tasaInteres = tasa;
-          aplicaIntereses = true;
-     }
-     
-     public double getTasa(){
-     return tasaInteres;
+       private double tasaInteres; 
+       private boolean aplicaIntereses;
+       
+       public CuentaAhorro(int idCliente, double deposito, String estado,double tasa){
+           super(idCliente,deposito,estado);
+           tasaInteres = tasa;
+           aplicaIntereses = true;
+       }
+       
+       public CuentaAhorro(int idCliente,double deposito,double tasa){
+        super(idCliente,deposito);
+        setSaldo(deposito);
+        tasaInteres = tasa;
+        setEstado("Activa");    
+        aplicaIntereses=true;
     }
     
-     public void setTasa(double valor){
-        tasaInteres=valor;
+    public double getTasa(){
+         return tasaInteres;   
     }
-     
-     public void  saldoConIntereses(){
-        if (aplicaIntereses){
-            setSaldo(getSaldo()*(1 +getTasa()));
-            aplicaIntereses=false;
-        } 
-     
-     
-     
-     
-     
-     }
-}
+    protected void setTasa(double tasa) {    
+       this.tasaInteres = tasa;
+    }  
+       
+    public void saldoConIntereses(){  
+      if (aplicaIntereses){
+         setSaldo(getSaldo()*(1+getTasa()));
+         aplicaIntereses = false;
+      }
+    } 
+    
+  }
