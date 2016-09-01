@@ -4,13 +4,17 @@ public abstract class Cuenta {
   
     private int idCuenta;
     private double saldo;
-    private  int idCliente;
+    private  int idCliente;  
     private String estado; 
+
+   
     private static int idSiguiente=1;
    
     public int getIdCuenta() {
         return idCuenta;
     }
+    public Cuenta(){}
+    
     public Cuenta(int idCliente, double deposito, String estado){        
       this.idCliente = idCliente;      
       saldo = deposito;
@@ -39,18 +43,19 @@ public abstract class Cuenta {
        saldo = valor;
     }
     
-    public  void retirar(double valor){
-       if (valor > saldo)
-            valor=saldo;
-       saldo=saldo - valor;
-       
+    public  abstract void  retirar(double valor);
+   
+     public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
-    
     public void getDatos(){
         
       System.out.println("idCliente : "+idCliente+"\n"+"Num. Cuenta : "+getIdCuenta()+"\n"+"Estado : "+estado+"\n"+"Saldo : "+saldo);
     }
     
+     public String getEstado() {
+        return estado;
+    }
     public void setEstado(String valor){
      estado=valor;
     }

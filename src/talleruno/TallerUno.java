@@ -18,7 +18,30 @@ public class TallerUno {
       banco.addCuenta(ca1); 
       cli1.addCuenta(ca1);
       banco.depositar(2, 200000);
-       System.out.println("Total Dinero en cuentas ="+banco.totalCuentas());
+      
+       // creacion por contructor default 
+      CuentaCorriente cc1 = new CuentaCorriente();
+      cc1.setIdCliente(cli1.getIdCliente());
+      cc1.setSaldo(50000);
+      cc1.setSobregiro(20000);
+      cc1.setEstado("Activo");
+      
+      cc1.retirar(60000);
+      
+      // aplicacion de polimorfismo por sustitucion movimientos es una
+      // Variable polimorfica
+      
+      Cuenta[] movimientos=new Cuenta[3];
+      
+      movimientos[0]=ca1; movimientos[1]=cc1; movimientos[2]=cdt1;
+      
+      for (int i=0;i<3;i++){
+        movimientos[i].retirar(60000);
+        movimientos[i].getSaldo();
+        movimientos[i].getDatos();
+        System.out.println("----------");
+      }
+      System.out.println("Total Dinero en cuentas ="+banco.totalCuentas());
        System.out.println("Saldo cuenta #="+ca1.getIdCuenta()+ " es = "+ca1.getSaldo());
        System.out.println("Saldo de la cuenta 1= "+banco.getSaldo(1));
        banco.traerClientes();

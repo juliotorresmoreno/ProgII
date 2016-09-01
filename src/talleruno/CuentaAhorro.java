@@ -4,6 +4,8 @@ public class CuentaAhorro extends Cuenta {
        private double tasaInteres; 
        private boolean aplicaIntereses;
        
+      public CuentaAhorro(){}
+      
        public CuentaAhorro(int idCliente, double deposito, String estado,double tasa){
            super(idCliente,deposito,estado);
            tasaInteres = tasa;
@@ -31,5 +33,11 @@ public class CuentaAhorro extends Cuenta {
          aplicaIntereses = false;
       }
     } 
+    
+   @Override
+    public void retirar(double cant){
+    
+    
+    }
     
   }

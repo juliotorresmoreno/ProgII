@@ -12,6 +12,9 @@ public class CuentaCDT extends CuentaAhorro {
      private LocalDate fechaInicio;
      private LocalDate fechaVence;
      
+     public CuentaCDT(){
+      
+     }
      
      public CuentaCDT(int idCliente, double deposito, String estado,double tasa,double tasaDesc,int anio,int mes, int dia,int diasVence){
         super(idCliente,deposito,estado,tasa);
