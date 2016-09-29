@@ -1,15 +1,26 @@
 package talleruno;
+
 public class TallerUno {
 
       public static void main(String[] args) {
           
-      Banco banco= new Banco("Davivienda");     
+      Banco banco= new Banco("Davivienda");  
+    
      
       Cliente cli1= new Cliente("72135240","Hernan","Pajaro","Activo");
       Cliente cli2= new Cliente("115240","Pedro","Navajas","Activo");
-      CuentaCDT cdt1 = new CuentaCDT(cli1.getIdCliente(),50000,"Activa",0.05,0.02,2016,07,01,90);
-      
-      banco.addCuenta(cdt1);
+      CuentaCDT cdt1 = new CuentaCDT(cli1.getId(),50000,"Activa",0.05,0.02,2016,07,01,90);
+      ClienteDTO reg= new ClienteDTO();
+      reg.cargar("Cliente");       
+      reg.adicionar(cli1);
+      reg.adicionar(cli2);
+      reg.guardar();
+      System.out.println(reg.getLista());
+      System.out.println("===========================");
+   /*   BancoJSON bjson= new BancoJSON();
+      bjson.guardar(lista);*/
+   
+   /*   banco.addCuenta(cdt1);
       banco.addCliente(cli1);
       banco.addCliente(cli2);
       cli1.addCuenta(cdt1);
@@ -44,6 +55,17 @@ public class TallerUno {
       System.out.println("Total Dinero en cuentas ="+banco.totalCuentas());
        System.out.println("Saldo cuenta #="+ca1.getIdCuenta()+ " es = "+ca1.getSaldo());
        System.out.println("Saldo de la cuenta 1= "+banco.getSaldo(1));
-       banco.traerClientes();
+       banco.traerClientes();*/
+     
+           
+        
+         Cliente cli3= new Cliente("122240","Pablo","Marmol","Activo");
+         reg.cargar("Cliente");
+         reg.adicionar(cli3);
+         reg.guardar();
+         System.out.println(reg.getLista());
+         System.out.println(reg.traer(99));
+         
+         
       }
 }

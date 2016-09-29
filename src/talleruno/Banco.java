@@ -64,7 +64,7 @@ public class Banco {
        
         Cuenta  xcuenta = null;
         for (int i=0; i< cuentas.length;i++){
-           if (cuentas[i].getIdCuenta() == id ){              
+           if (cuentas[i].getId() == id ){              
                xcuenta= cuentas[i];
                break;
            }
@@ -76,7 +76,7 @@ public class Banco {
        
         Cliente  xcliente = null;
         for (int i=0; i< cuentas.length;i++){
-           if (clientes[i].getIdCliente() == id ){              
+           if (clientes[i].getId() == id ){              
                xcliente= clientes[i];
                break;
            }

@@ -2,32 +2,32 @@ package talleruno;
 public abstract class Cuenta {
 
   
-    private int idCuenta;
+    private int id;
     private double saldo;
-    private  int idCliente;  
+  
     private String estado; 
 
    
     private static int idSiguiente=1;
    
-    public int getIdCuenta() {
-        return idCuenta;
+    public int getId() {
+        return id;
     }
     public Cuenta(){}
     
-    public Cuenta(int idCliente, double deposito, String estado){        
-      this.idCliente = idCliente;      
+    public Cuenta(int id, double deposito, String estado){        
+        
       saldo = deposito;
       this.estado = estado;
-      idCuenta = idSiguiente;
+      id = idSiguiente;
       idSiguiente += 1;
     }
     
-    public Cuenta(int idCliente,double deposito){
-       this.idCliente= idCliente;
+    public Cuenta(int id,double deposito){
+       
        saldo = deposito;
        estado="Activa";
-       idCuenta = idSiguiente;
+       id = idSiguiente;
        idSiguiente += 1;
     }
     
@@ -45,12 +45,15 @@ public abstract class Cuenta {
     
     public  abstract void  retirar(double valor);
    
-     public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+     public void setId(int id) {
+        this.id = id;
     }
-    public void getDatos(){
+    
+    
+     public void getDatos(){
+    
         
-      System.out.println("idCliente : "+idCliente+"\n"+"Num. Cuenta : "+getIdCuenta()+"\n"+"Estado : "+estado+"\n"+"Saldo : "+saldo);
+      System.out.println("id : "+id+"\n"+"Num. Cuenta : "+getId()+"\n"+"Estado : "+estado+"\n"+"Saldo : "+saldo);
     }
     
      public String getEstado() {
